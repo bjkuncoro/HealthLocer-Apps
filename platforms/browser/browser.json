@@ -1,0 +1,125 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"Device\"><param name=\"browser-package\" value=\"Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"BackgroundMode\"><param name=\"browser-package\" value=\"BackgroundMode\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-app-event": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "id": "cordova-plugin-device.device",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-device/src/browser/DeviceProxy.js",
+      "id": "cordova-plugin-device.DeviceProxy",
+      "pluginId": "cordova-plugin-device",
+      "runs": true
+    },
+    {
+      "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
+      "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
+      "pluginId": "de.appplant.cordova.plugin.local-notification",
+      "clobbers": [
+        "cordova.plugins.notification.local",
+        "plugin.notification.local"
+      ]
+    },
+    {
+      "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification-core.js",
+      "id": "de.appplant.cordova.plugin.local-notification.LocalNotification.Core",
+      "pluginId": "de.appplant.cordova.plugin.local-notification",
+      "clobbers": [
+        "cordova.plugins.notification.local.core",
+        "plugin.notification.local.core"
+      ]
+    },
+    {
+      "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification-util.js",
+      "id": "de.appplant.cordova.plugin.local-notification.LocalNotification.Util",
+      "pluginId": "de.appplant.cordova.plugin.local-notification",
+      "merges": [
+        "cordova.plugins.notification.local.core",
+        "plugin.notification.local.core"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "id": "cordova-plugin-statusbar.statusbar",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-statusbar/src/browser/StatusBarProxy.js",
+      "id": "cordova-plugin-statusbar.StatusBarProxy",
+      "pluginId": "cordova-plugin-statusbar",
+      "runs": true
+    },
+    {
+      "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+      "id": "cordova-plugin-background-mode.BackgroundMode",
+      "pluginId": "cordova-plugin-background-mode",
+      "clobbers": [
+        "cordova.plugins.backgroundMode",
+        "plugin.backgroundMode"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-background-mode/src/browser/BackgroundModeProxy.js",
+      "id": "cordova-plugin-background-mode.BackgroundMode.Proxy",
+      "pluginId": "cordova-plugin-background-mode",
+      "runs": true
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-browsersync": "0.1.7",
+    "cordova-plugin-device": "2.0.1",
+    "cordova-plugin-app-event": "1.2.1",
+    "de.appplant.cordova.plugin.local-notification": "0.8.5",
+    "cordova-plugin-statusbar": "2.4.1",
+    "cordova-plugin-background-mode": "0.7.2"
+  }
+}

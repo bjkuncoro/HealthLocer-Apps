@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+        <title>HealthLocer</title>
+
+        <!--Morris Chart CSS -->
+		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,800" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/easypichart.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/jquery-toast-plugin.css" rel="stylesheet" type="text/css" />   
+        <link href="assets\compressed\themes\default.css" rel="stylesheet" type="text/css" />   
+        <link href="assets\compressed\themes\default.time.css" rel="stylesheet" type="text/css" />              
+        <link href="assets\compressed\themes\default.date.css" rel="stylesheet" type="text/css" />   
+        <link href="http://cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.css" rel="stylesheet" type="text/css"/>           
+        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="assets/js/modernizr.min.js"></script>
+
+    </head>
+    <style>
+    .no-js #loader { display: none;  }
+    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(assets/images/Preloader_3.gif) center no-repeat #fff;
+    }
+    </style>
+
+    <body class="fixed-left">
+        <div style="text-align:center" class="se-pre-con"><span style="margin-top:355px;display:block">HEALTH  <span class="label label-inverse"><b style="color:#f8ff9e;">LOCER</b></span></span></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <div id="header"></div>
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div id="konten-utama" class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+                        <h2>Settings</h2>
+                        <hr style="border-top-color: rgb(54, 64, 74);">
+                        <!-- modal atur batas -->
+                        <!-- modal atur batas -->
+                        <h4>Load Balance Server</h4>
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-offset-3">
+                                <input id="add-lb" type="text" class="form-control" placeholder="server address">
+                            </div>
+                            <div class="col-xs-4 col-sm-offset-3">
+                                <input id="port-lb" type="text" class="form-control" placeholder="Port">
+                            </div>
+                        </div>
+                        <h4>Server 1</h4>
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-offset-3">
+                                <input id="add-srv1" type="text" class="form-control" placeholder="server address">
+                            </div>
+                            <div class="col-xs-4 col-sm-offset-3">
+                                <input id="port-srv1" type="text" class="form-control" placeholder="Port">
+                            </div>
+                        </div>
+                        <h4>Server 2</h4>
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-offset-3">
+                                <input id="add-srv2" type="text" class="form-control" placeholder="server address">
+                            </div>
+                            <div class="col-xs-4 col-sm-offset-3">
+                                <input id="port-srv2" type="text" class="form-control" placeholder="Port">
+                            </div>
+                        </div>
+                        <h4>Server 3</h4>
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-offset-3">
+                                <input id="add-srv3" type="text" class="form-control" placeholder="server address">
+                            </div>
+                            <div class="col-xs-4 col-sm-offset-3">
+                                <input id="port-srv3" type="text" class="form-control" placeholder="Port">
+                            </div>
+                        </div>
+                        <div style="margin-top:10px" class="row">
+                            <div class="col-xs-12">
+                                <button type="button" class="btn save btn-block btn-primary waves-effect waves-light">
+                                        <span class="btn-label"><i class="fa fa-save"></i>
+                                        </span>Save
+                                </button>
+                            </div>
+                        </div>
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+
+            </div>
+            <div id="footer"></div>
+            
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+            <!-- Right Sidebar -->
+            
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+
+
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- jQuery  -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/detect.js"></script>
+            <script src="assets/js/fastclick.js"></script>
+            <script src="assets/js/jquery-toast-plugin.js"></script>          
+            <script src="assets/js/jquery.slimscroll.js"></script>
+            <script src="assets/js/jquery.blockUI.js"></script>
+            <script src="assets/js/waves.js"></script>
+            <script src="assets/js/wow.min.js"></script>
+            <script src="assets/js/jquery.nicescroll.js"></script>
+            <script src="assets/js/jquery.scrollTo.min.js"></script>
+            <script src="assets/plugins/peity/jquery.peity.min.js"></script>
+
+            <!-- jQuery  -->
+            <script src="assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
+            <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+            <!-- datetimepicker    -->
+                           
+            <!-- datetimepicker    -->            
+            <script src="assets/plugins/morris/morris.min.js"></script>
+            <script src="assets/plugins/raphael/raphael-min.js"></script>
+            <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>                    
+            <script src="assets/pages/jquery.dashboard.js"></script> 
+            <script src="assets/pages/jquery.dashboard_2.js"></script>
+            <script src="assets/js/jquery.core.js"></script>
+            <script src="assets/js/jquery.app.js"></script>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.6.1/less.min.js"></script>
+            <script src="assets/compressed/legacy.js"></script>
+            <script src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
+            <script src="assets\compressed\picker.js"></script>
+            <script src="assets\compressed\picker.date.js"></script> 
+            <script src="http://cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.js"></script>
+            <script src="assets/js/Chart.bundle.js"></script>
+            <script src="assets/js/hammer.min.js"></script>
+            <script src="assets/js/chartjs-plugin-zoom.js"></script>
+            <script src="assets/js/Chart.PieceLabel.js"></script>
+            <script type="text/javascript" src="cordova.js"></script>
+        <script>
+        $(window).load(function() {
+            setTimeout(function(){
+                $(".se-pre-con").fadeOut('slow');                
+            },2000);
+            });
+        jQuery(document).ready(function($) {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+            $('#add-lb').attr('placeholder',localStorage.getItem('add-lb'))
+            $('#port-lb').attr('placeholder',localStorage.getItem('port-lb'))
+            $('#add-srv1').attr('placeholder',localStorage.getItem('add-srv1'))
+            $('#add-srv2').attr('placeholder',localStorage.getItem('add-srv2'))
+            $('#add-srv3').attr('placeholder',localStorage.getItem('add-srv3'))
+            $('#port-srv1').attr('placeholder',localStorage.getItem('port-srv1'))
+            $('#port-srv2').attr('placeholder',localStorage.getItem('port-srv2'))
+            $('#port-srv3').attr('placeholder',localStorage.getItem('port-srv3'))
+        });
+        $('.save').click(function(){
+            if(!$('#add-lb').val()){
+
+            }else{
+            var add_lb = $('#add-lb').val();
+            localStorage.setItem('add-lb',add_lb);
+            console.log(localStorage.getItem('add-lb')) }
+            
+            if(!$('#port-lb').val()){
+                
+            }else{
+            var port_lb = $('#port-lb').val();
+            localStorage.setItem('port-lb',port_lb);
+            console.log(localStorage.getItem('port-lb'))}
+
+             if(!$('#add-srv1').val()){
+                
+            }else{ 
+            var add_srv1 = $('#add-srv1').val();
+            localStorage.setItem('add-srv1',add_srv1);
+            console.log(localStorage.getItem('add-srv1'))}
+                
+            if(!$('#port-srv1').val()){
+                
+            }else{
+            var port_srv1 = $('#port-srv1').val();
+            localStorage.setItem('port-srv1',port_srv1);
+            console.log(localStorage.getItem('port-srv1'))}
+                
+            if(!$('#add-srv2').val()){
+                
+            }else{
+            var add_srv2 = $('#add-srv2').val();
+            localStorage.setItem('add-srv2',add_srv2);
+            console.log(localStorage.getItem('add-srv2'))}
+                
+            if(!$('#port-srv2').val()){
+                
+            }else{
+            var port_srv2 = $('#port-srv2').val();
+            localStorage.setItem('port-srv2',port_srv2);
+            console.log(localStorage.getItem('port-srv2'))}
+            
+            if(!$('#add-srv3').val()){
+                
+            }else{
+            var add_srv3 = $('#add-srv3').val();
+            localStorage.setItem('add-srv3',add_srv3);
+            console.log(localStorage.getItem('add-srv3'))}
+                
+            if(!$('#port-srv3').val()){
+                
+            }else{
+            var port_srv3 = $('#port-srv3').val();
+            localStorage.setItem('port-srv3',port_srv3);
+            console.log(localStorage.getItem('port-srv3'))}
+        })
+        
+        </script>
+    </body>
+</html>

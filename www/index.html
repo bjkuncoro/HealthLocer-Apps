@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+        <title>HealthLocer</title>
+
+        <!--Morris Chart CSS -->
+		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,800" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/easypichart.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/jquery-toast-plugin.css" rel="stylesheet" type="text/css" />   
+        <link href="assets\compressed\themes\default.css" rel="stylesheet" type="text/css" />   
+        <link href="assets\compressed\themes\default.time.css" rel="stylesheet" type="text/css" />              
+        <link href="assets\compressed\themes\default.date.css" rel="stylesheet" type="text/css" />   
+        <link href="http://cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.css" rel="stylesheet" type="text/css"/>           
+        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="assets/js/modernizr.min.js"></script>
+
+    </head>
+    <style>
+    .no-js #loader { display: none;  }
+    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(assets/images/Preloader_3.gif) center no-repeat #fff;
+    }
+    </style>
+
+    <body class="fixed-left">
+        <div style="text-align:center" class="se-pre-con"><span style="margin-top:355px;display:block">HEALTH  <span class="label label-inverse"><b style="color:#f8ff9e;">LOCER</b></span></span></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <div id="header"></div>
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div id="konten-utama" class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+
+                        <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="btn-group pull-right m-t-15">
+                                    <button type="button" class="btn btn-info dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
+                                    <ul class="dropdown-menu drop-menu-right" role="menu">
+                                        <li><a href="#" data-toggle="modal" data-target="#atur-batas" >Atur batas peringatan</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#warning-modal">Take Action</a></li>
+                                        <li><a href="#">Logs</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Do not Enter !!!</a></li>
+                                    </ul>
+                                </div>
+
+                                <h4 class="page-title">Welcome IT Geek'z</h4>
+                                <p class="text-muted page-title-alt">Sayangi Load Balancer anda </p>
+                            </div>
+                        </div>
+                        <!-- modal notofikasi -->
+                        <div id="warning-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                                        <h4 class="modal-title">Do Something Please</h4> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <h4>Pilih aksi yang akan di lakukan pada server yang Bermasalah</h4>
+                                        <div class="row">
+                                            <div class="col-xs-4 text-center">
+                                                <button style="margin-bottom:10px" data-toggle="modal" data-target="#restart-modal" class="btn btn-icon btn-lg waves-effect waves-light btn-purple"> <i class="icon-refresh"></i></button>
+                                                <span  class="label label-inverse">restart service</span>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <button style="margin-bottom:10px" data-toggle="modal" data-target="#reboot-modal" class="btn btn-icon btn-lg waves-effect waves-light btn-danger"> <i class="icon-reload"></i></button>
+                                                <span  class="label label-inverse">reboot server</span>                                                
+                                            </div>  
+                                            <div class="col-xs-4 text-center">
+                                                <button style="margin-bottom:10px" data-toggle="modal" data-target="#clean-modal" class="btn btn-icon btn-lg waves-effect waves-light btn-info"> <i class="icon-trash"></i></button>
+                                                <span  class="label label-inverse">autoclean</span>                                            
+                                            </div>                                              
+                                        </div>
+                                    </div> 
+                                    <div class="modal-footer"> 
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- modal notifikasi -->
+                        <!-- modal atur batas -->
+                        <div id="atur-batas" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog"> 
+                                    <div class="modal-content"> 
+                                        <div class="modal-header"> 
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                                            <h4 class="modal-title">Masukan Batas Cpu Load </h4> 
+                                        </div> 
+                                        <div class="modal-body"> 
+                                            <div style="margin-top:30px" class="row"> 
+                                                <h5>Batas Peringatan Pertama</h5>
+                                                <div class="range-slider">
+                                                    <input id="batas-peringatan" class="range-slider__range" type="range" value="" min="20" max="100">
+                                                    <span class="bts-warning range-slider__value">0</span>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top:30px" class="row"> 
+                                                <h5>Batas Penanganan Otomatis</h5>                                                    
+                                                <div class="range-slider">
+                                                    <input id="batas-penanganan" class="range-slider__range" type="range" value="" min="20" max="100">
+                                                    <span class="bts-kendali range-slider__value">0</span>
+                                                </div>  
+                                            </div> 
+                                            <div style="margin-top:30px" class="row"> 
+                                                <h5>Batas Penggunaan Memori</h5>                                                    
+                                                <div class="range-slider">
+                                                    <input id="batas-memori" class="range-slider__range" type="range" value="" min="20" max="100">
+                                                    <span class="bts-memori range-slider__value">0</span>
+                                                </div>  
+                                            </div> 
+                                        </div> 
+                                        <div class="modal-footer"> 
+                                            <button type="button" class=" load-batas btn btn-default waves-effect">Current Limit</button> 
+                                            <button type="button" class="simpan-batas btn btn-info waves-effect waves-light">Simpan</button> 
+                                        </div> 
+                                    </div> 
+                                </div>
+                        </div>
+                        <!-- modal atur batas -->
+                        <!-- modal aksi -->
+                        <div id="restart-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                                        <h4 class="modal-title">Health Locer</h4> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <button type="button" data-host='203.24.50.67' class="btn btn-block rstsrvc btn-custom btn-inverse waves-effect waves-light">Server LB</button>
+                                        <button type="button" data-host='203.24.50.81' class="btn btn-block rstsrvc btn-custom btn-inverse waves-effect waves-light">Server 1</button>
+                                        <button type="button" data-host='203.24.50.82' class="btn btn-block rstsrvc btn-custom btn-inverse waves-effect waves-light">Server 2</button>
+                                        <button type="button" data-host='203.24.50.79' class="btn btn-block rstsrvc btn-custom btn-inverse waves-effect waves-light">Server 3</button>                                        
+                                    </div> 
+                                    <div class="modal-footer">
+                                        <p>Dokumentasi lengkap di <a href="https://github.com/bjkuncoro/HealthLocer-Apps">Github</a></p> 
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- modal aksi -->    
+                        <!-- modal aksi -->
+                        <div id="reboot-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                                        <h4 class="modal-title">Health Locer</h4> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <button type="button" data-host='203.24.50.67' class="btn btn-block rbtsrv btn-custom btn-inverse waves-effect waves-light">Server LB</button>
+                                        <button type="button" data-host='203.24.50.81' class="btn btn-block rbtsrv btn-custom btn-inverse waves-effect waves-light">Server 1</button>
+                                        <button type="button" data-host='203.24.50.82' class="btn btn-block rbtsrv btn-custom btn-inverse waves-effect waves-light">Server 2</button>
+                                        <button type="button" data-host='203.24.50.79' class="btn btn-block rbtsrv btn-custom btn-inverse waves-effect waves-light">Server 3</button>                                        
+                                    </div> 
+                                    <div class="modal-footer">
+                                        <p>Dokumentasi lengkap di <a href="https://github.com/bjkuncoro/HealthLocer-Apps">Github</a></p> 
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- modal aksi -->      
+                        <!-- modal aksi -->
+                        <div id="clean-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                                        <h4 class="modal-title">Health Locer</h4> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <button type="button" data-host='203.24.50.67' class="btn btn-block clnsrv btn-custom btn-inverse waves-effect waves-light">Server LB</button>
+                                        <button type="button" data-host='203.24.50.81' class="btn btn-block clnsrv btn-custom btn-inverse waves-effect waves-light">Server 1</button>
+                                        <button type="button" data-host='203.24.50.82' class="btn btn-block clnsrv btn-custom btn-inverse waves-effect waves-light">Server 2</button>
+                                        <button type="button" data-host='203.24.50.79' class="btn btn-block clnsrv btn-custom btn-inverse waves-effect waves-light">Server 3</button>                                        
+                                    </div> 
+                                    <div class="modal-footer">
+                                        <p>Dokumentasi lengkap di <a href="https://github.com/bjkuncoro/HealthLocer-Apps">Github</a></p> 
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- modal aksi -->                
+                        <!-- modal petunjuk -->
+                        <div id="doc-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                                        <h4 class="modal-title">Health Locer</h4> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <h4>Petunjuk Penggunaan</h4>
+                                        <p>
+                                            1. Atur Alamat Ip Host Server beserta Port.<br>
+                                            2. Atur Batasan penggunaan Server sebagai Batas peringatan.<br>
+                                            3. kondisi server ditunjukan secara detai dengan memilih menu detail.<br>
+                                            4. Pilih Log berdasarkan tanggal dan Jam.<br>
+                                        </p>
+                                    </div> 
+                                    <div class="modal-footer">
+                                        <p>Dokumentasi lengkap di <a href="https://github.com/bjkuncoro/HealthLocer-Apps">Github</a></p> 
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- modal petunjuk -->
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="card-box">
+                                    <button type="button" id="srv1" style="margin-top: -20px;margin-left: -25px;" class="text-center btn btn-danger btn-xs ">203.24.50.81</button>
+                                    <div class="widget-chart text-center">
+                                        <img id="status1" style="width:50px" src="ripple.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="card-box">
+                                    <button type="button" id="srv2" style="margin-top: -20px;margin-left: -25px;" class="text-center btn btn-danger btn-xs">203.24.50.82</button>
+                                    <div class="widget-chart text-center">
+                                        <img id="status2" style="width:50px" src="ripple.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="card-box">
+                                    <button type="button" id="srv3" style="margin-top: -20px;margin-left: -25px;" class="text-center btn btn-danger btn-xs">203.24.50.79</button>
+                                    <div class="widget-chart text-center">
+                                        <img id="status3" style="width:50px" src="ripple.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button type="button" id="all-logs" style="margin-bottom:12px;margin-top:-12px" class=" btn-block btn btn-info"><i class="ti-pulse m-r-10 text-white"></i>Real Time Logs</button>                                
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-lg-12">
+                        		<div class="card-box">
+                                    <ul class="list-inline">
+                                    <li>
+                        			    <h4 class="text-dark header-title m-t-0 m-b-30">CPU Usage [LB <span id="statuslb" class="label label-primary">X</span>  ]</h4>
+                                    </li>
+                                    <li style="float:right">
+                                        <button class="btn btn-danger waves-effect waves-light" id="ganti">Detail</button>
+                                    </li>
+                                    </ul>
+                                    <div class="widget-chart">
+                                        <!-- <input class="knob" data-width="150" data-height="150" data-linecap=round data-fgColor="#fb6d9d" value="22" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15"/> -->
+                                        <div class="radial-progress" data-progress="0">
+                                        <div class="circle">
+                                            <div class="mask full">
+                                            <div class="fill"></div>
+                                            </div>
+                                            <div class="mask half">
+                                            <div class="fill"></div>
+                                            <div class="fill fix"></div>
+                                            </div>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="inset">
+                                            <div class="percentage">
+                                            <div class="numbers">
+                                                <span>-</span><span>0%</span><span>1%</span><span>2%</span><span>3%</span><span>4%</span><span>5%</span><span>6%</span><span>7%</span><span>8%</span><span>9%</span><span>10%</span><span>11%</span><span>12%</span><span>13%</span><span>14%</span><span>15%</span><span>16%</span><span>17%</span><span>18%</span><span>19%</span><span>20%</span><span>21%</span><span>22%</span><span>23%</span><span>24%</span><span>25%</span><span>26%</span><span>27%</span><span>28%</span><span>29%</span><span>30%</span><span>31%</span><span>32%</span><span>33%</span><span>34%</span><span>35%</span><span>36%</span><span>37%</span><span>38%</span><span>39%</span><span>40%</span><span>41%</span><span>42%</span><span>43%</span><span>44%</span><span>45%</span><span>46%</span><span>47%</span><span>48%</span><span>49%</span><span>50%</span><span>51%</span><span>52%</span><span>53%</span><span>54%</span><span>55%</span><span>56%</span><span>57%</span><span>58%</span><span>59%</span><span>60%</span><span>61%</span><span>62%</span><span>63%</span><span>64%</span><span>65%</span><span>66%</span><span>67%</span><span>68%</span><span>69%</span><span>70%</span><span>71%</span><span>72%</span><span>73%</span><span>74%</span><span>75%</span><span>76%</span><span>77%</span><span>78%</span><span>79%</span><span>80%</span><span>81%</span><span>82%</span><span>83%</span><span>84%</span><span>85%</span><span>86%</span><span>87%</span><span>88%</span><span>89%</span><span>90%</span><span>91%</span><span>92%</span><span>93%</span><span>94%</span><span>95%</span><span>96%</span><span>97%</span><span>98%</span><span>99%</span><span>100%</span></div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="text-center">
+                                        <ul class="list-inline">
+                                            <li style="margin-right:70px">
+                                                <h5 class="text-muted m-t-20">Total Request</h5>
+                                                <h3 class="font-600 req">. . .</h3>
+                                            </li>
+                                            <li>
+                                                <h5 class="text-muted m-t-20">Bandwidth</h5>
+                                                <h3 class="bandw font-600 req">. . .</h3>
+                                            </li>
+                                        </ul>
+                                        <p class="font-600"><span style="margin-left: -180px;" pull-left>Memori</span> <span class="text-warning pull-right memory">. . .</span></p>
+                                        <div style=" width: 100%;background-color: #ddd;" id="myProgress">
+                                            <div style="width: 1%;height: 10px;background-color: #ef6257" id="myBar"></div>
+                                        </div>
+                                        <h4 style="margin-bottom:-18px" class="text-muted m-t-15">Load Average</h4>
+	                                	<ul class="list-inline m-t-5">
+	                                		<li>
+	                                			<h5 class="text-muted m-t-20">1 Menit</h5>
+	                                			<h4 class="avg-1 m-b-0">. . .</h4>
+	                                		</li>
+	                                		<li>
+	                                			<h5 class="text-muted m-t-20">5 Menit</h5>
+	                                			<h4 class="avg-5 m-b-0">. . .</h4>
+	                                		</li>
+	                                		<li>
+	                                			<h5 class="text-muted m-t-20">15 Menit</h5>
+	                                			<h4 class="avg-15 m-b-0">. . .</h4>
+	                                		</li>
+                                        </ul>
+                                        
+                                        </div>
+                                	</div>
+                        		</div>
+
+                            </div>
+
+
+
+
+						</div>
+                        <!-- end row -->
+
+
+                        <div class="row">
+
+
+                            <!-- col -->
+
+                        	<!-- end col -->
+
+
+
+                        </div>
+                        <!-- end row -->
+
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+
+            </div>
+            <div id="footer"></div>
+            
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+            <!-- Right Sidebar -->
+            
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+
+
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- jQuery  -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/detect.js"></script>
+            <script src="assets/js/fastclick.js"></script>
+            <script src="assets/js/jquery-toast-plugin.js"></script>          
+            <script src="assets/js/jquery.slimscroll.js"></script>
+            <script src="assets/js/jquery.blockUI.js"></script>
+            <script src="assets/js/waves.js"></script>
+            <script src="assets/js/wow.min.js"></script>
+            <script src="assets/js/jquery.nicescroll.js"></script>
+            <script src="assets/js/jquery.scrollTo.min.js"></script>
+            <script src="assets/plugins/peity/jquery.peity.min.js"></script>
+
+            <!-- jQuery  -->
+            <script src="assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
+            <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+            <!-- datetimepicker    -->
+                           
+            <!-- datetimepicker    -->            
+            <script src="assets/plugins/morris/morris.min.js"></script>
+            <script src="assets/plugins/raphael/raphael-min.js"></script>
+            <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>                    
+            <script src="assets/pages/jquery.dashboard.js"></script> 
+            <script src="assets/pages/jquery.dashboard_2.js"></script>
+            <script src="assets/js/jquery.core.js"></script>
+            <script src="assets/js/jquery.app.js"></script>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.6.1/less.min.js"></script>
+            <script src="assets/compressed/legacy.js"></script>
+            <script src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
+            <script src="assets\compressed\picker.js"></script>
+            <script src="assets\compressed\picker.date.js"></script> 
+            <script src="http://cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.js"></script>
+            <script src="assets/js/Chart.bundle.js"></script>
+            <script src="assets/js/hammer.min.js"></script>
+            <script src="assets/js/chartjs-plugin-zoom.js"></script>
+            <script src="assets/js/Chart.PieceLabel.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pulltorefreshjs/0.1.11/pulltorefresh.js"></script>
+            <script type="text/javascript" src="cordova.js"></script>
+            
+
+        <script type="text/javascript">
+        //inisiasi keperluan tampilan document
+        document.addEventListener('deviceready', function () {
+            cordova.plugins.backgroundMode.enable();
+        }, false);
+        $(window).load(function() {
+            setTimeout(function(){
+                $(".se-pre-con").fadeOut('slow');                
+            },2000);
+            });
+        jQuery(document).ready(function($) {
+                $("#header").load("header.html");
+                $("#footer").load("footer.html");
+                
+                $('.counter').counterUp({
+                    delay: 100,
+                    time: 1200
+                });
+
+                $(".knob").knob();
+
+            	$('head style[type="text/css"]').attr('type', 'text/less');
+				less.refreshStyles();
+				window.randomize = function() {
+  			    // $('.radial-progress').attr('data-progress', Math.floor(Math.random() * 100));
+                // $('#myBar').css('width',Math.floor(Math.random() * 100)+'%');
+				}
+				setTimeout(window.randomize, 200);
+                $('.radial-progress').click(window.randomize);
+                
+            });
+        //inisiasi keperluan tampilan document
+    
+    //fungsi push notifikasi
+    // notify  =   localStorage.getItem('arrnotify')
+    function PushNotifyLimit(socket,cpu){
+                var item = {time:new Date().format('yyyy-mm-dd HH:MM:ss'),type:'CPU Melewati Batas!'+cpu+'%',hostname:socket.io.engine.hostname}
+                $.post('http://203.24.50.67:2020/saveNotification',item, function( data ) {
+                    console.log(data);
+                });
+                cordova.plugins.notification.local.schedule({
+                    title: 'CPU melewati Batas',
+                    text: 'Server '+socket.io.engine.hostname+' melebihi batas\nlakukan tindakan !',
+                    smallIcon:'alert.gif',
+                    foreground: true
+                })
+            };
+    function PushNotifyMem(socket,mem){
+        var item = {time:new Date().format('yyyy-mm-dd HH:MM:ss'),type:'Memori Melewati Batas! hingga'+mem+'%',hostname:socket.io.engine.hostname}
+        $.post('http://203.24.50.67:2020/saveNotification',item, function( data ) {
+            console.log(data);
+        });
+        cordova.plugins.notification.local.schedule({
+            title: 'Memori Melewati Batas',
+            text: 'Server '+socket.io.engine.hostname+' melebihi batas Memori \nlakukan tindakan !',
+            smallIcon:'alert.gif',
+            foreground: true
+        })
+    };
+    function PushNotifyWebServer(socket){
+                var item = {time:new Date().format('yyyy-mm-dd HH:MM:ss'),type:'Web Server Mati',hostname:socket.io.engine.hostname}
+                $.post('http://203.24.50.67:2020/saveNotification',item, function( data ) {
+                    console.log(data);
+                });
+                cordova.plugins.notification.local.schedule({
+                    title: 'Web Server Mati',
+                    text: 'Web Server '+socket.io.engine.hostname+' Tak dapat Menerima Request !',
+                    smallIcon:'alert.gif',
+                    foreground: true
+                });
+            };
+    function PushNotifyisConnected(socket){
+                var item = {time:new Date().format('yyyy-mm-dd HH:MM:ss'),type:'Koneksi Socket Bermasalah',hostname:socket.io.engine.hostname}
+                $.post('http://203.24.50.67:2020/saveNotification',item, function( data ) {
+                    console.log(data);
+                });
+                cordova.plugins.notification.local.schedule({
+                    title: 'Koneksi Socket Bermasalah',
+                    text: 'Data dari Server '+socket.io.engine.hostname+' Tak di Terima !',
+                    smallIcon:'alert.gif',
+                    foreground: true
+                })
+            };
+    //fungsi push notifikasi
+
+    //urusan data socket.io dan lain2
+    var addlb       = localStorage.getItem('add-lb');
+    var addsrv1     = localStorage.getItem('add-srv1');
+    var addsrv2     = localStorage.getItem('add-srv2');
+    var addsrv3     = localStorage.getItem('add-srv3');
+    var portlb      = localStorage.getItem('port-lb');
+    var portsrv1    = localStorage.getItem('port-srv1');
+    var portsrv2    = localStorage.getItem('port-srv2');
+    var portsrv3    = localStorage.getItem('port-srv3');
+    var socketlb    = io('http://'+addlb+':'+portlb); 
+    var socketsrv1  = io('http://'+addsrv1+':'+portsrv1); 
+    var socketsrv2  = io('http://'+addsrv2+':'+portsrv2); 
+    var socketsrv3  = io('http://'+addsrv3+':'+portsrv3); 
+    
+    setTimeout(function () {
+                console.log(socketlb.connected);										
+                if(socketsrv1.connected == false){
+                    $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Data dari Server 1 Tidak di Terima, periksa koneksi dan script, atau Coba Lagi',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                    document.getElementById("status1").setAttribute('src','x.png');
+                    PushNotifyisConnected(socketsrv1)                    
+                }
+                if(socketsrv2.connected == false){
+                    $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Data dari Server 2 Tidak di Terima, periksa koneksi dan script, atau Coba Lagi',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                    document.getElementById("status2").setAttribute('src','x.png');                    
+                    PushNotifyisConnected(socketsrv2)                    
+                }
+                console.log(socketsrv3);
+                if(socketsrv3.connected == false){
+                    $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Data dari Server 3 Tidak di Terima, periksa koneksi dan script, atau Coba Lagi',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                    document.getElementById("status3").setAttribute('src','x.png');                    
+                    PushNotifyisConnected(socketsrv3)                    
+                }
+                if(socketlb.connected == false){
+                    $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Data dari Server LB Tidak di Terima, periksa koneksi dan script, atau Coba Lagi',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                    document.getElementById("statuslb").setAttribute('src','x.png');
+                    PushNotifyisConnected(socketlb)                                        
+                }
+                }, 4000);
+    function getDataSrvLB(socket){
+        socket.on('data_cpu',function(data){		
+			console.log(data);
+			// $('.cpu').text(data.cpu)
+            $('.radial-progress').attr('data-progress', data.cpu);
+            // console.log(batas_peringatan);
+		  if( data.cpu >=batas_peringatan ){ 
+            $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'penggunaan CPU server '+socket.io.engine.hostname+' '+data.cpu+'%, segera lakukan tindakan!! ',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                        });
+            PushNotifyLimit(socket,data.cpu);            
+          }
+		});
+		socket.on('data_mem',function(data){		
+			console.log(data);
+            if( data.mem >=localStorage.getItem('batas-memori') ){ 
+            $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'penggunaan memori '+socket.io.engine.hostname+' '+data.mem+'%, segera lakukan tindakan!! ',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                        });
+                PushNotifyMem(socket,data.mem);            
+            }
+                $('.memory').text(data.mem+"%");
+                $('#myBar').css('width',data.mem+'%');
+                $('.avg-1').text((data.loadavg[0]).toFixed(3));
+                $('.avg-5').text((data.loadavg[1]).toFixed(3));
+                $('.avg-15').text((data.loadavg[2]).toFixed(3));                                        
+        });
+        socket.on('data_bandwidth',function(data){		
+			console.log(data);                                        
+        });
+        // socket.on('data_test',function(data){		
+		// 	console.log('data diterima',data);                                        
+		// });
+	    socket.on('data_status', function (data) {
+            console.log('status lb  '+data.pesan);
+            socket.emit('data_client', { pesan : 'Terhubung dengan Klien' });
+                if(data.pesan == "200"){
+                    $('#statuslb').removeClass('label-danger');	                    
+                    $('#statuslb').text('ON');	
+                    $('#statuslb').addClass('label-primary');	
+                }
+                else{
+                    $('#statuslb').removeClass('label-primary');	                    
+                    $('#statuslb').addClass('label-danger');	
+                    $('#statuslb').text('OFF');	
+                    $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Web Server '+socket.io.engine.hostname+' Mati',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });	
+                    PushNotifyWebServer(socket);		
+                }
+	    });
+		socket.on('disconnect', function () {
+  			console.log('Socket is disconnected.');
+                $('#statuslb').text('X');
+                $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Data dari Server '+socket.io.engine.hostname+' Tidak di Terima, periksa koneksi dan script, atau Coba Lagi',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                PushNotifyisConnected(socket)                                
+		});
+    }
+    function getSrvStatus(socket,selector){
+        socket.on('data_cpu',function(data){		
+			// console.log('datacpusrv: '+data);
+		  if( data.cpu >=batas_peringatan ){ 
+            $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Penggunaan CPU server '+socket.io.engine.hostname+' '+data.cpu+'%, segera lakukan tindakan!! ',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                        });
+            PushNotifyLimit(socket,data.cpu);            
+          }
+        });
+        socket.on('data_mem',function(data){		
+			// console.log(data);
+            if( data.mem >=localStorage.getItem('batas-memori') ){ 
+            $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'penggunaan memori '+socket.io.engine.hostname+' '+data.mem+'%, segera lakukan tindakan!! ',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                        });
+                PushNotifyMem(socket,data.mem);            
+            }
+        });
+        socket.on('data_status', function (data) {
+            console.log(socket.io.engine.hostname+': '+data.pesan);
+            socket.emit('data_client', { pesan : 'Terhubung dengan Klien' });
+                if(data.pesan == "200"){
+                    $(selector).attr('src','ripple.gif');						
+                }
+                else{
+                    $(selector).attr('src','alert.gif');
+                    $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Web Server '+socket.io.engine.hostname+' Mati',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                    PushNotifyWebServer(socket)				
+                }
+        });
+        socket.on('disconnect', function () {
+  			console.log('Socket is disconnected.');
+                $(selector).attr('src','x.png');
+                $.toast({
+                        heading: 'Peringatan !!!',
+                        text: 'Data dari Server '+socket.io.engine.hostname+' Tidak di Terima, periksa koneksi dan script, atau Coba Lagi',
+                        showHideTransition: 'fade',
+                        hideAfter : 2500,                        
+                        icon: 'error'
+                    });
+                PushNotifyisConnected(socket)
+		});
+    }
+    getSrvStatus(socketsrv1,'#status1');
+    getSrvStatus(socketsrv2,'#status2');
+    getSrvStatus(socketsrv3,'#status3');    
+    getDataSrvLB(socketlb);
+    //urusan data socket.io dan lain2
+    
+	//ambil data traffic cpu
+	setInterval(
+		function(){
+		$.getJSON( "http://203.24.50.67:2020/laporan", function( data ) {
+			// console.log(data.general.total_requests);
+            $('.req').text(data.general.total_requests);
+			$('.bandw').text((data.general.bandwidth/1000000).toFixed(2)+"MB");            
+        })},2000);	
+	//ambil data traffic cpu
+    
+
+    //simpan value di lokal aplikasi
+    var batas_peringatan = localStorage.getItem('batas-peringatan');
+    $('.simpan-batas').on('click', function(){
+        $('input[type="range"]').each(function(id,batas){    
+        var id = $(this).attr('id');
+        var value = $(this).val();
+        localStorage.setItem(id, value);
+        var batas = localStorage.getItem(id);
+        batas_peringatan = localStorage.getItem('batas-peringatan');        
+        $(this).val(batas);
+        $.toast({
+                    heading: 'Mantep Bro',
+                    text: 'nilai  '+id+'  '+batas+' telah di simpan!!',
+                    showHideTransition: 'fade',
+                    hideAfter : 2500,                        
+                    icon: 'info'
+                    });
+        console.log(localStorage.getItem(id));        
+        });   
+    });
+
+    $('.load-batas').on('click', function(){ 
+        $('input[type="range"]').each(function(){    
+            var id = $(this).attr('id');
+            var batas = localStorage.getItem(id);                    
+            console.log(batas);
+            $(this).val(batas);
+            $('.bts-warning').text(localStorage.getItem('batas-peringatan'));
+            $('.bts-kendali').text(localStorage.getItem('batas-penanganan'));   
+            $('.bts-memori').text(localStorage.getItem('batas-memori'));                                                       
+            
+        }); 
+    });
+    //simpan value di lokal aplikasi    
+
+
+    //range input slider
+    var rangeSlider = function(){
+    var slider = $('.range-slider'),
+        range = $('.range-slider__range'),
+        value = $('.range-slider__value');
+        
+    slider.each(function(){
+
+        value.each(function(){
+        var value = $(this).prev().attr('value');
+        $(this).html(value);
+        });
+
+        range.on('input', function(){
+        $(this).next(value).html(this.value);
+        });
+    });
+    };
+
+    rangeSlider();
+    //range input slider
+    //ganti main konten
+    $('#ganti').on('click',function(){
+        window.location.href = 'chart.html';
+
+    });
+    $('#all-logs').on('click',function(){
+        window.location.href = 'all-logs.html';
+    });
+    $('#srv1').on('click',function(){
+        window.location.href = 'chartsrv1.html';
+    });
+    $('#srv2').on('click',function(){
+        window.location.href = 'chartsrv2.html';
+    });
+    $('#srv3').on('click',function(){
+        window.location.href = 'chartsrv3.html';
+    });
+    $('.rstsrvc').click(function(){
+        var host = $(this).data('host');
+        console.log(host);
+        $.get('http://'+host+':2020/aksi/rstservice', function( data ) {
+                    console.log(data);
+                });
+    });
+    $('.rbtsrv').click(function(){
+        var host = $(this).data('host');
+        console.log(host)
+        $.get('http://'+host+':2020/aksi/reboot', function( data ) {
+                    console.log(data);
+                });
+    });
+    $('.clnsrv').click(function(){
+        var host = $(this).data('host');
+        $.get('http://'+host+':2020/aksi/autoclean', function( data ) {
+                    console.log(data);
+                });
+    });
+    var ptr = PullToRefresh.init({
+        mainElement: '#wrapper',
+        onRefresh: function(){ window.location.reload(); }
+    });
+
+    //ganti main konten
+   
+   </script>
+
+
+
+    </body>
+</html>

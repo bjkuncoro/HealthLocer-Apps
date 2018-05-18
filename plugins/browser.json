@@ -1,0 +1,31 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    },
+    "cordova-plugin-app-event": {
+      "PACKAGE_NAME": "org.apache.cordova.HealthLocer"
+    }
+  }
+}

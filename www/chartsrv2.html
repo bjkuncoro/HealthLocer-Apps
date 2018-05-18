@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+    
+            <title>HealthLocer</title>
+    
+            <!--Morris Chart CSS -->
+            <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+            <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,800" rel="stylesheet">
+            <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/easypichart.css" rel="stylesheet" type="text/css" />
+            <link href="assets/css/jquery-toast-plugin.css" rel="stylesheet" type="text/css" />
+            <link href="assets/compressed/themes/default.css" rel="stylesheet" type="text/css" />   
+            <link href="assets/compressed/themes/default.time.css" rel="stylesheet" type="text/css" />              
+            <link href="assets/compressed/themes/default.date.css" rel="stylesheet" type="text/css" />   
+            <link href="http://cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<style>
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(assets/images/Preloader_3.gif) center no-repeat #fff;
+}
+</style>
+<body>
+    <div class="se-pre-con"></div>
+    <div id="wrapper" class="enlarged">
+        <div id="header"></div>    
+    
+        <div id="chart" style="margin-top:100px;" class="col-sm-12">
+            <button type="button" class="btn btn-block btn-md btn-info waves-effect waves-light">
+                <span class="btn-label"><i class="fa fa-server"></i></span>Real Time Server Info
+            </button>         
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                        OS Info
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-os"><i class="ion-minus-round"></i></a>  
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-os" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <div style="margin-bottom: 10px;" class="btn-group btn-group-justified" role="group" aria-label="...">
+                            <a type="button" class="btn btn-danger">Host</a>
+                            <a type="button" class="btn host">. . .</a>
+                        </div>
+                        <div style="margin-bottom: 10px;" class="btn-group btn-group-justified" role="group" aria-label="...">
+                            <a type="button" class="btn btn-danger">Os</a>
+                            <a type="button" class="btn"><span class="os"></span><span class="os_v">. . .</span><span class="os_arch"></span></a>
+                        </div>
+                        <div style="margin-bottom: 10px;" class="btn-group btn-group-justified" role="group" aria-label="...">
+                                <a type="button" class="btn btn-danger">Processor</a>
+                                <a type="button" class="btn "><span style="font-size:8px;white-space:normal" class="processor">. . .</span></a>
+                        </div>
+                        <div style="margin-bottom: 10px;" class="btn-group btn-group-justified" role="group" aria-label="...">
+                                <a type="button" class="btn btn-danger">Uptime</a>
+                                <a type="button" class="btn uptime">. . .</a>
+                        </div>
+                        <div style="margin-bottom: 10px;" class="btn-group btn-group-justified" role="group" aria-label="...">
+                                <a type="button" class="btn btn-danger">Total Memori</a>
+                                <a type="button" class="btn totalmem">. . .</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                        CPU Load
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-cpu"><i class="ion-minus-round"></i></a>  
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-cpu" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <canvas style="margin-left:-12px;width:365px" id="cpu_chart" width="800" height="600"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                        Memori
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-memori"><i class="ion-minus-round"></i></a>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-memori" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <canvas style="margin-left:-12px;width:365px" id="mem_chart" width="800" height="600"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                        Request per Jam
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-req"><i class="ion-minus-round"></i></a>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-req" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <div class="row">
+                        <div class="col-xs-4">
+                            <h1 style="font-size:35px; margin-top:12px;" class="req-jam">. . .</h1>
+                            <h5 style=" margin-top:30px;">total request</h5>
+                            <button class="btn btn-primary btn-block disabled totreq">. . .</button>
+                        </div>
+                        <div class="col-xs-8">
+                            <table  class="table m-0">
+                                
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Bandwidth</th>
+                                        <th>Req</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reqtbl">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                        Http Status Report
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-http"><i class="ion-minus-round"></i></a>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-http" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <table  class="table m-0">
+                            
+                            <thead>
+                                <tr>
+                                    <th>Respone</th>
+                                    <th>value</th>
+                                    <th>Hits</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statuscodetbl">
+                                
+                            </tbody>
+                        </table>
+                        <button class="btn btn-primary btn-block disabled">Requested URL</button>
+                        <table  class="table m-0">
+                            
+                            <thead >
+                                <tr>
+                                    <th>Hits</th>
+                                    <th>Method</th>
+                                    <th>req(url)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requrltbl">
+                                
+                            </tbody>
+                        </table>
+                        <button class="btn btn-danger btn-block disabled">Not found URL</button>
+                        <table  class="table-fixed table m-0">
+                            
+                            <thead class="scrtbl">
+                                <tr class="scrtbl">
+                                    <th class="scrtbl thfloat col-xs-3">Hits</th>
+                                    <th class="scrtbl thfloat col-xs-3">Method</th>
+                                    <th class="scrtbl thfloat col-xs-6">404(url)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="notfoundtbl">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                        Server Traffic
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-traffic"><i class="ion-minus-round"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-traffic" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <canvas style="margin-left:-12px;width:365px" id="traffic_chart" width="800" height="600"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet"><!-- /primary heading -->
+                <div class="portlet-heading bg-inverse">
+                    <h3 class="portlet-title">
+                       Visitor
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#portlet-visitor"><i class="ion-minus-round"></i></a>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="portlet-visitor" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <table  class="table m-0">
+                                
+                            <thead>
+                                <tr>
+                                    <th>Hits</th>
+                                    <th>Bdwth</th>
+                                    <th>Host</th>
+                                    <th>Country</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody id="visitor">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a href="#" data-toggle="modal" data-target="#cek-log" class="float">
+                <i class="fa  fa-file-archive-o my-float"></i>
+            </a>
+            <div class="label-container">
+            <div class="label-text">Cek log</div>
+                <i class="fa fa-play label-arrow"></i>
+            </div>
+            <div id="cek-log" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                            <h4 class="modal-title">Filter log Berdasarkan Tanggal dan Waktu </h4> 
+                        </div> 
+                        <div class="modal-body"> 
+                            <div class="row"> 
+                                <div class="col-md-6"> 
+                                    <div class="form-group"> 
+                                        <label for="field-1" class="control-label">Tanggal</label> 
+                                        <input id="input_tanggal" type="text" class="form-control date" placeholder="12-11-1995" readonly> 
+                                    </div> 
+                                </div> 
+                                <div class="col-md-6"> 
+                                    <div class="form-group"> 
+                                        <label for="field-2" class="control-label">Waktu(Jam)</label> 
+                                        <input id="input_waktu" type="text" class="form-control" data-field="time" placeholder="12.00" readonly> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div>
+                        <div>
+                            <img style="width:100%;margin-top:-42px" src="https://thumbs.dreamstime.com/t/computer-server-icon-vector-illustration-isolated-white-background-68131767.jpg" alt="">
+                            <p style="text-align:center"><span class="label label-primary">Note :</span>  Sayangi Server Anda sebelum di Sayangi Engineer Lain !!</p>
+                        </div>
+                        <div class="modal-footer"> 
+                            <button type="button" data-dismiss="modal" class=" btn btn-default waves-effect">Close</button> 
+                            <button type="button" data-dismiss="modal" data-toggle="modal" href="#cek-log2" id="cek_data" class=" btn btn-info waves-effect waves-light">Cek</button> 
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+            <div id="cek-log2" style="overflow-y:scroll" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                            <h4 class="modal-title">Filter log Berdasarkan Tanggal dan Waktu </h4> 
+                        </div> 
+                        <div class="modal-body"> 
+                        <h5 style="text-align:center;" class="h5dt"></h5>
+                        <canvas style="width:365px" id="cek" width="800" height="600"></canvas>
+                        <h4 style="text-align:center">Jumlah Transfer Waktu Tersebut</h4>
+                        <button class="btn tfreq btn-primary btn-block" disabled>. . .</button>    
+                        <button class="btn tfreqbw btn-inverse btn-block" >. . .</button>   
+                        <h4 style="text-align:center">*Visitor</h4>                        
+                        <table  class="table m-0">
+                                
+                            <thead>
+                                <tr>
+                                    <th>Hits</th>
+                                    <th>Bdwth</th>
+                                    <th>Host</th>
+                                    <th>Country</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody id="log-visitor">
+                                
+                            </tbody>
+                        </table> 
+                        <h4 style="text-align:center">*Status Code</h4>                                                
+                        <table  class="table m-0">
+                            
+                            <thead>
+                                <tr>
+                                    <th>Respone</th>
+                                    <th>value</th>
+                                    <th>Hits</th>
+                                </tr>
+                            </thead>
+                            <tbody id="log-statuscodetbl">
+                                
+                            </tbody>
+                        </table>      
+                        <p style="text-align:center;margin-top:10px"><span class="label label-danger">*Note :</span>  Filter Visitor & StatusCode Logging Hanya Berdasarkan Hari</p>                                                                                        
+                        </div>
+                        <div class="modal-footer"> 
+                            <button type="button" data-dismiss="modal" class=" btn btn-default waves-effect">Close</button> 
+                            <button type="button"  class=" btn btn-info waves-effect waves-light">Cek</button> 
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+            <div id="dtBox"></div>
+            <!-- <input id="input_tanggal" class="date" type="text" readonly>
+            <input id="input_waktu" type="text" data-field="time" readonly>
+            <div id="dtBox"></div></br>
+            <button class="btn btn-danger waves-effect waves-light" id="cek_data">Cek</button>    -->
+            <canvas style="margin-left:-12px;width:365px" width="800" height="100"></canvas>            
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+<script src="assets\compressed\legacy.js"></script>
+<script src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
+<script src="assets\compressed\picker.js"></script>
+<script src="assets\compressed\picker.date.js"></script> 
+<script src="http://cdn.jsdelivr.net/npm/datetimepicker@latest/dist/DateTimePicker.min.js"></script>
+<script src="assets/js/jquery.core.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>        
+
+        <!-- Chart JS -->
+        <!-- <script src="assets/plugins/chart.js/chart.min.js"></script> -->
+        <script src="assets/js/Chart.bundle.js"></script>
+        <script src="assets/js/hammer.min.js"></script>
+        <script src="assets/js/chartjs-plugin-zoom.js"></script>
+        <script src="assets/js/Chart.PieceLabel.js"></script>
+        <script src="assets/js/chart_initsrv2.js"></script>
+</html>

@@ -1,0 +1,77 @@
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <!-- <div class="text-center"> -->
+                        <!-- <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i class="md md-album"></i>ld</span></a> -->
+                        <!-- Image Logo here -->
+                        <!--<a href="index.html" class="logo">-->
+                            <!--<i class="icon-c-logo"> <img src="assets/images/logo_sm.png" height="42"/> </i>-->
+                            <!--<span><img src="assets/images/logo_light.png" height="20"/></span>-->
+                        <!--</a>-->
+                    <!-- </div> -->
+                </div>
+
+                <!-- Button mobile view to collapse sidebar menu -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="">
+                            <ul class="nav navbar-nav navbar-left pull-left" >
+                                <li class="dropdown top-menu-item-xs">
+                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><i class="md md-menu"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="index.html" ><i class="ti-home m-r-10 text-custom"></i> Home</a></li>
+                                        <li><a href="settings.html"><i class="ti-settings m-r-10 text-custom"></i> Settings</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#doc-modal"><i class="ti-github m-r-10 text-custom"></i>Petunjuk</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="javascript:void(0)"><i class="ti-power-off m-r-10 text-danger"></i> Exit</a></li>
+                                    </ul>
+                                </li>
+                                <span class="clearfix"></span>
+                            </ul>
+                             <div class="pull-left">
+                                <h3 style="font-family: 'Work Sans', sans-serif;font-size:large;color: #b5d492;font-weight: 300;margin-top:14px">HEALTH<b>LOCER</b></h3>
+                            </div> 
+                            <ul class="nav navbar-nav navbar-right pull-right">
+                                <li class="dropdown top-menu-item-xs">
+                                    <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="icon-bell"></i> <span class="badge badge-xs count-noti badge-danger">0</span>
+                                    </a>
+                                    <ul style="right:0;left:auto" class="dropdown-menu dropdown-menu-lg">
+                                        <li class="notifi-title"><span class="label label-default pull-right"></span>Notification</li>
+                                        <li class="list-group slimscroll-noti notification-list">
+
+                                        </li> 
+                                        <li>
+                                            <a href="notification.html" class="list-group-item text-right">
+                                                <small class="font-600">See all notifications</small>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="dropdown top-menu-item-xs">
+                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="https://freeloadbalancer.com/wp-content/uploads/2015/01/Layer-4-7-icon-update.png" alt="user-img" class="img-circle"> </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <!-- Top Bar End -->
+
+            <script>
+                function getNotification(){
+                    $.getJSON( "http://203.24.50.67:2020/getNotification", function( data ) {
+                        $('.count-noti').text(data.noti.length)
+                        for(var i=0;i<=2; i++){
+                            $('.notification-list').append('<a href="javascript:void(0);" class="list-group-item"><div class="media"><div class="pull-left p-r-10"><em class="fa fa-exclamation noti-danger"></em></div><div class="media-body"><h5 class="media-heading">'+data.noti[i].type+'</h5><p class="m-0"><small>'+data.noti[i].hostname+'</small></p></div></div></a>') 
+                        }
+                })}
+                getNotification();
+            </script>
+
+
+           
