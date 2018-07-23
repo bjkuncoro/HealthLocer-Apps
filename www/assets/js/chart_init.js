@@ -340,7 +340,6 @@ visitor();
             // console.log(data);   
 			var arrmenit_cpu = [];
             var arrfixmenit= [];
-            // grep CRON /var/log/syslog
 			for(var i in data.logs) {
                 //ambil string menit
                 var waktu       = data.logs[i].time;
@@ -349,7 +348,7 @@ visitor();
                 var splitjam    = jam.split(':');
                 var menit       = splitjam[1];
                 arrmenit_cpu.push({menit:Number(menit),cpu:data.logs[i].cpu});
-            };
+            }
             // console.log(arrmenit_cpu);            
             result = arrmenit_cpu.reduce(function (r, a) {
                 r[a.menit] = r[a.menit] || [];
@@ -369,7 +368,7 @@ visitor();
                 var avg = total /result[i].length;
                 rerata.push(avg.toFixed(1));
             }
-            // console.log(rerata);
+            console.log(rerata);
             for(var i in arrmenit_cpu){
                 var value = arrmenit_cpu[i].menit;
                 if(arrfixmenit.indexOf(value) !== -1){//jika tidak di temukan maka return -1

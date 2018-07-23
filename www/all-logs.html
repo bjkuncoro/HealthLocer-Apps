@@ -50,7 +50,7 @@
     </style>
 
     <body class="fixed-left">
-        <div style="text-align:center" class="se-pre-con"><span style="margin-top:355px;display:block">HEALTH  <span class="label label-inverse"><b style="color:#f8ff9e;">LOCER</b></span></span></div>
+        <div style="text-align:center" class="se-pre-con"><span style="margin-top:405px;display:block">HEALTH  <span class="label label-inverse"><b style="color:#f8ff9e;">LOCER</b></span></span></div>
 
         <!-- Begin page -->
         <div id="wrapper">
@@ -293,7 +293,7 @@
                 var statusdatatbl   =   data.status_codes.data;
                 var newArr4xx = statusdatatbl.filter(function(el){
                     return el.data ===  '4xx Client Error';
-                });
+                }); 
                 var newArr2xx = statusdatatbl.filter(function(el){
                     return el.data ===  '2xx Success';
                 });
